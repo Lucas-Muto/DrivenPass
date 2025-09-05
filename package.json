@@ -12,6 +12,9 @@
     "prisma:deploy": "prisma migrate deploy",
     "prisma:seed": "tsx src/prisma/seed.ts"
   },
+  "prisma": {
+    "seed": "tsx src/prisma/seed.ts"
+  },
   "keywords": ["password-manager", "drivenpass", "typescript", "prisma"],
   "author": "",
   "license": "ISC",
