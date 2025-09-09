@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import { authService } from '../services/authService.js';
-import { CreateUserData, SignInData } from '../types/index.js';
+import { SignUpData, SignInData } from '../types/index.js';
 
 export const authController = {
   async signUp(req: Request, res: Response, next: NextFunction) {
     try {
-      const userData: CreateUserData = req.body;
+      const userData: SignUpData = req.body;
       const user = await authService.signUp(userData);
       
       res.status(201).json(user);

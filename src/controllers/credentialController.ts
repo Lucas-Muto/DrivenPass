@@ -1,11 +1,11 @@
 import { Response, NextFunction } from 'express';
 import { credentialService } from '../services/credentialService.js';
-import { CreateCredentialData, AuthenticatedRequest } from '../types/index.js';
+import { CredentialRequestData, AuthenticatedRequest } from '../types/index.js';
 
 export const credentialController = {
   async create(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     try {
-      const credentialData: CreateCredentialData = req.body;
+      const credentialData: CredentialRequestData = req.body;
       const userId = req.userId!;
       
       const credential = await credentialService.create(credentialData, userId);
@@ -43,7 +43,7 @@ export const credentialController = {
   async update(req: AuthenticatedRequest, res: Response, next: NextFunction) {
     try {
       const id = parseInt(req.params.id);
-      const credentialData: CreateCredentialData = req.body;
+      const credentialData: CredentialRequestData = req.body;
       const userId = req.userId!;
       
       await credentialService.update(id, credentialData, userId);

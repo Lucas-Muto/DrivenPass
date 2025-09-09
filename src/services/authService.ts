@@ -1,11 +1,11 @@
 import { userRepository } from '../repositories/userRepository.js';
-import { CreateUserData, SignInData } from '../types/index.js';
+import { SignUpData, SignInData } from '../types/index.js';
 import { hashPassword, comparePassword } from '../utils/cryptoUtils.js';
 import { generateToken } from '../utils/jwtUtils.js';
 import { AppError } from '../middlewares/errorHandler.js';
 
 export const authService = {
-  async signUp(userData: CreateUserData) {
+  async signUp(userData: SignUpData) {
     // Verificar se o usuário já existe
     const existingUser = await userRepository.findByEmail(userData.email);
     if (existingUser) {

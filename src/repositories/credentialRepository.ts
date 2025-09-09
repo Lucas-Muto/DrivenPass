@@ -1,8 +1,8 @@
 import { prisma } from '../prisma/database.js';
-import { CreateCredentialData } from '../types/index.js';
+import { CredentialRequestData } from '../types/index.js';
 
 export const credentialRepository = {
-  async create(credentialData: CreateCredentialData & { userId: number }) {
+  async create(credentialData: CredentialRequestData & { userId: number }) {
     return await prisma.credential.create({
       data: credentialData
     });
@@ -35,7 +35,7 @@ export const credentialRepository = {
     });
   },
 
-  async updateById(id: number, credentialData: Partial<CreateCredentialData>) {
+  async updateById(id: number, credentialData: Partial<CredentialRequestData>) {
     return await prisma.credential.update({
       where: { id },
       data: credentialData

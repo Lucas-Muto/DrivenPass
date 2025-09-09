@@ -1,10 +1,10 @@
 import { credentialRepository } from '../repositories/credentialRepository.js';
-import { CreateCredentialData } from '../types/index.js';
+import { CredentialRequestData } from '../types/index.js';
 import { encryptData, decryptData } from '../utils/cryptoUtils.js';
 import { AppError } from '../middlewares/errorHandler.js';
 
 export const credentialService = {
-  async create(credentialData: CreateCredentialData, userId: number) {
+  async create(credentialData: CredentialRequestData, userId: number) {
     // Verificar se já existe uma credencial com o mesmo título para o usuário
     const existingCredential = await credentialRepository.findByUserIdAndTitle(
       userId, 
@@ -70,7 +70,7 @@ export const credentialService = {
     };
   },
 
-  async update(id: number, credentialData: CreateCredentialData, userId: number) {
+  async update(id: number, credentialData: CredentialRequestData, userId: number) {
     // Verificar se a credencial existe e pertence ao usuário
     const existingCredential = await credentialRepository.findByIdAndUserId(id, userId);
     

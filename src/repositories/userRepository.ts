@@ -1,8 +1,8 @@
 import { prisma } from '../prisma/database.js';
-import { CreateUserData } from '../types/index.js';
+import { SignUpData } from '../types/index.js';
 
 export const userRepository = {
-  async create(userData: CreateUserData) {
+  async create(userData: SignUpData) {
     return await prisma.user.create({
       data: userData
     });
