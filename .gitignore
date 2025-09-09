@@ -35,6 +35,7 @@ coverage/
 Thumbs.db
 
 # Prisma
-prisma/migrations/
+# Note: migrations devem ser commitadas para deploy
+# prisma/migrations/
 
 projeto.md
